@@ -86,7 +86,8 @@ public class CustomerServiceTests : InMemoryTestBase
 
 		await _createService.Create(customerDto, "TestUser");
 
-		Context.Set<Customer>().Count().Should().Be(2);
+		var count = await Context.Set<Customer>().CountAsync();
+		count.Should().Be(2);
 
 		var isEntryAdded = await Context.Set<Customer>().AnyAsync(c => c.CustomerId == "BCD");
 		isEntryAdded.Should().BeTrue();
@@ -114,7 +115,9 @@ public class CustomerServiceTests : InMemoryTestBase
 
 		await _editService.Edit(customerDto, "TestUser");
 
-		Context.Set<Customer>().Count().Should().Be(1);
+		var count = await Context.Set<Customer>().CountAsync();
+		count.Should().Be(1);
+		
 		var editedEntry = await Context.Set<Customer>().SingleAsync(c => c.CustomerId == "ABC");
 		editedEntry.CompanyName.Should().Be("TestCompanyName2");
 
@@ -128,7 +131,9 @@ public class CustomerServiceTests : InMemoryTestBase
 
 		await _removeService.Remove(customerDto);
 
-		Context.Set<Customer>().Count().Should().Be(0);
+		var count = await Context.Set<Customer>().CountAsync();
+		count.Should().Be(0);
+		
 		var isEntryInDb = await Context.Set<Customer>().AnyAsync(c => c.CustomerId == "ABC");
 		isEntryInDb.Should().BeFalse();
 
