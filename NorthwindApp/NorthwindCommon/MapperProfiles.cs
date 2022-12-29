@@ -4,9 +4,9 @@ using NorthwindCommon.DTOs;
 
 namespace NorthwindCommon;
 
-public class MapperProfile : Profile
+public class MapperProfiles : Profile
 {
-	public MapperProfile()
+	public MapperProfiles()
 	{
 		AllowNullCollections = true;
 

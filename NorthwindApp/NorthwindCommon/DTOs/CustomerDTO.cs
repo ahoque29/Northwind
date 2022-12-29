@@ -4,7 +4,6 @@ public class CustomerDto : BaseDto
 {
 	public override string EndpointName => "Customers";
 	public string CustomerId { get; set; }
-	public int JobTitleId { get; set; }
 	public string CompanyName { get; set; }
 	public string ContactName { get; set; }
 	public string Address { get; set; }

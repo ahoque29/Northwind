@@ -42,7 +42,7 @@ public class CustomerService : IReadService<CustomerDto>, ICreateService<Custome
 		return Customers.ProjectTo<CustomerDto>(_mapper.ConfigurationProvider);
 	}
 
-	public async Task Remove(IEnumerable<CustomerDto> customerDtos, string user)
+	public async Task Remove(IEnumerable<CustomerDto> customerDtos)
 	{
 		foreach (var customerDto in customerDtos) Customers.Delete(c => c.CustomerId == customerDto.CustomerId);
 
@@ -59,9 +59,9 @@ public class CustomerService : IReadService<CustomerDto>, ICreateService<Custome
 				await EditEntry(customerDto);
 			else
 				await CreateEntry(customerDto);
-
-			await _context.SaveChangesAsync();
 		}
+
+		await _context.SaveChangesAsync();
 	}
 
 	private async Task CreateEntry(CustomerDto customerDto)
@@ -71,6 +71,7 @@ public class CustomerService : IReadService<CustomerDto>, ICreateService<Custome
 
 		var customer = new Customer
 		{
+			CustomerId = customerDto.CustomerId,
 			JobTitleId = jobTitle.JobTitleId,
 			CountryId = country.CountryId,
 			CompanyName = customerDto.CompanyName,
