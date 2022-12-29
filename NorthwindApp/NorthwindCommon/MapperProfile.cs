@@ -11,6 +11,7 @@ public class MapperProfile : Profile
 		AllowNullCollections = true;
 
 		CreateMap<Customer, CustomerDto>()
-			.ForMember(dest => dest.JobTitle, opts => opts.MapFrom(src => src.JobTitle.Title));
+			.ForMember(dest => dest.JobTitle, opts => opts.MapFrom(src => src.JobTitle.Title))
+			.ForMember(dest => dest.Country, opts => opts.MapFrom(src => src.Country.Name));
 	}
 }
