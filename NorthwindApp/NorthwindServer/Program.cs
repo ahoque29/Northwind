@@ -17,11 +17,11 @@ builder.Services.AddDbContext<NorthwindContext>(opts =>
 
 builder.Services.AddAutoMapper(typeof(MapperProfiles));
 
-builder.Services.AddSingleton<IReadService<CustomerDto>, CustomerService>();
-builder.Services.AddSingleton<ICreateService<CustomerDto>, CustomerService>();
-builder.Services.AddSingleton<IEditService<CustomerDto>, CustomerService>();
-builder.Services.AddSingleton<IRemoveService<CustomerDto>, CustomerService>();
-builder.Services.AddSingleton<IUpsertService<CustomerDto>, CustomerService>();
+builder.Services.AddScoped<IReadService<CustomerDto>, CustomerService>();
+builder.Services.AddScoped<ICreateService<CustomerDto>, CustomerService>();
+builder.Services.AddScoped<IEditService<CustomerDto>, CustomerService>();
+builder.Services.AddScoped<IRemoveService<CustomerDto>, CustomerService>();
+builder.Services.AddScoped<IUpsertService<CustomerDto>, CustomerService>();
 
 var app = builder.Build();
 

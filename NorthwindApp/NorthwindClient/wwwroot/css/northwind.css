@@ -1,0 +1,51 @@
+﻿.header-fixed {
+    border: none;
+}
+
+.northwind-nav {
+    color: rgb(255, 255, 255);
+}
+
+.northwind-nav .nav-header {
+    padding: 12px 0px;
+    background-color: #530da8;
+    height: 90px;
+}
+
+.header-row {
+    margin: 0px 15px;
+    flex-direction: row;
+    display: flex;
+}
+
+.header-title {
+    margin: auto 17px;
+    display: flex;
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.header-logo {
+    margin: 6px 8px;
+}
+
+.header-logo img {
+    height: 52px;
+}
+
+.app-title {
+    font-family: "Segoe UI", Roboto, "Helvetica Neue", Helvetica, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 40px;
+    margin: 8px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.title-separator {
+    font-weight: 400;
+    font-size: 32px;
+    margin-right: 10px;
+}
