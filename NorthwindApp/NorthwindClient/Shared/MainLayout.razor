@@ -1,44 +1,17 @@
-﻿@inherits MainLayoutComponent
+﻿@inherits LayoutComponentBase
 
-<RadzenDialog/>
-<RadzenNotification/>
-<RadzenContextMenu/>
-<RadzenTooltip/>
-<RadzenHeader>
-    <ChildContent>
-        <div class="northwind-nav">
-            <div class="nav-header">
-                <div class="header-row">
-                    <div>
-                        <RadzenSidebarToggle Click="@SideBarToggleClick"/>
-                    </div>
-                    <div class="header-title">
-                        <div class="header-logo">
-                            <img src="resources/northwind-logo.svg" alt=""/>
-                        </div>
-                        <span class="title-separator">|</span>
-                        <h1 class="app-title">Northwind App</h1>
-                    </div>
-                </div>
-            </div>
+<div class="page">
+    <div class="sidebar">
+        <NavMenu/>
+    </div>
+
+    <main>
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
         </div>
-    </ChildContent>
-</RadzenHeader>
-<RadzenBody @ref="Body">
-    <ChildContent>
-        <RadzenContentContainer Name="main">
+
+        <article class="content px-4">
             @Body
-        </RadzenContentContainer>
-    </ChildContent>
-</RadzenBody>
-<RadzenSidebar @ref="Sidebar" Style="bottom: 0">
-    <ChildContent>
-        <RadzenPanelMenu Style="height: 100%">
-            <ChildContent>
-                <RadzenPanelMenuItem Text="Northwind">
-                    <RadzenPanelMenuItem Text="Customers" Path="customers" Image="resources/customer.svg"></RadzenPanelMenuItem>
-                </RadzenPanelMenuItem>
-            </ChildContent>
-        </RadzenPanelMenu>
-    </ChildContent>
-</RadzenSidebar>
+        </article>
+    </main>
+</div>
