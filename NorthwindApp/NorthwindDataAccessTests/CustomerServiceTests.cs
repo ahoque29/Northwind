@@ -53,7 +53,7 @@ public class CustomerServiceTests : InMemoryTestBase
 
 		Context.SaveChanges();
 	}
-
+	
 	[Fact]
 	public async Task CustomerTable_IsCorrectlyRead()
 	{
@@ -117,7 +117,7 @@ public class CustomerServiceTests : InMemoryTestBase
 
 		var count = await Context.Set<Customer>().CountAsync();
 		count.Should().Be(1);
-		
+
 		var editedEntry = await Context.Set<Customer>().SingleAsync(c => c.CustomerId == "ABC");
 		editedEntry.CompanyName.Should().Be("TestCompanyName2");
 
@@ -133,7 +133,7 @@ public class CustomerServiceTests : InMemoryTestBase
 
 		var count = await Context.Set<Customer>().CountAsync();
 		count.Should().Be(0);
-		
+
 		var isEntryInDb = await Context.Set<Customer>().AnyAsync(c => c.CustomerId == "ABC");
 		isEntryInDb.Should().BeFalse();
 
@@ -176,7 +176,7 @@ public class CustomerServiceTests : InMemoryTestBase
 		};
 
 		await _upsertService.Upsert(customerDtos, "TestUser");
-		
+
 		var count = await Context.Set<Customer>().CountAsync();
 		count.Should().Be(2);
 
