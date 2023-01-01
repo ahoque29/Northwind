@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using NorthwindClient;
 using NorthwindClientService;
 using Radzen;
+using Radzen.Blazor;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -13,6 +14,8 @@ builder.Services.AddScoped(sp => sp.GetRequiredService<IHttpClientFactory>().Cre
 
 builder.Services.AddScoped<DialogService>();
 builder.Services.AddScoped<NotificationService>();
+builder.Services.AddScoped<RadzenContextMenu>();
+builder.Services.AddScoped<RadzenTooltip>();
 
 builder.Services.AddScoped<IReadOnlyService, ReadOnlyService>();
 
