@@ -1,0 +1,29 @@
+﻿@page "/customers"
+@using NorthwindCommon.DTOs
+@inherits CustomersBase
+
+<RadzenText TextStyle="TextStyle.H3" TagName="TagName.H1" class="my-4">
+    <strong>Customer</strong>
+</RadzenText>
+
+<RadzenDataGrid AllowFiltering="true"
+                AllowColumnResize="true"
+                FilterMode="FilterMode.Simple"
+                AllowSorting="true"
+                PageSize="20"
+                AllowPaging="true"
+                Data="Customers"
+                TItem="CustomerDto"
+                FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive">
+    <Columns>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="ContactName" Title="Name"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="CompanyName" Title="Company Name"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="JobTitle" Title="Job Title"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="Address" Title="Address"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="City" Title="City"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="PostalCode" Title="PostalCode"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="Phone" Title="Phone"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="Fax" Title="Fax"/>
+        <RadzenDataGridColumn TItem="CustomerDto" Property="Country" Title="Country"/>
+    </Columns>
+</RadzenDataGrid>
